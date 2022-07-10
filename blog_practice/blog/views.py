@@ -1,7 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Post
 
 # Create your views here.
 def home(request):
-    return HttpResponse('This is the home page.')
+    text_list = Post.objects.all()
+    context = {'text_list': text_list}
+    return render(request, 'home.html', context)
