@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Post detail</title>
+</head>
+<body>
+    <h1>This is the detail from post {{ post.id }}</h1>
+    {% if post %}
+    <p>The title is: {{ post.title }}</p>
+    <p>The text is: {{ post.text }}</p>
+    {% endif %}
+</body>
+</html>

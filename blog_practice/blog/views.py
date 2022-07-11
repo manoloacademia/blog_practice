@@ -14,3 +14,8 @@ def pages(request):
     text_list = Post.objects.all()
     context = {'text_list': text_list}
     return render(request, 'pages.html', context)
+
+def page_detail(request, pk):
+    page_detail = Post.objects.get(pk=pk)
+    context = {'post': page_detail}
+    return render(request, 'page_detail.html', context)
