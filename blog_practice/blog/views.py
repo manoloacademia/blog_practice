@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Post
 from .forms import PostForm
@@ -22,10 +22,11 @@ def page_detail(request, pk):
     return render(request, 'page_detail.html', context)
 
 def page_create(request):
+    form = PostForm()
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect('/thanks/') # This is an example from https://docs.djangoproject.com/en/4.0/topics/forms/
-    else:
-        form = PostForm()
-    return render(request, 'page_create.html', {'form': form})
+            form.save()
+            return redirect('/')
+    context = {'form': form}
+    return render(request, 'page_create.html', context)

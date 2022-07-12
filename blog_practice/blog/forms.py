@@ -1,5 +1,7 @@
-from django import forms
+from django.forms import ModelForm
+from .models import Post
 
-class PostForm(forms.Form):
-    title = forms.CharField(label='Post Title', max_length=50)
-    text = forms.TimeField(label='Post Text')
+class PostForm(ModelForm):
+    class Meta:
+        model = Post
+        fields = '__all__'
