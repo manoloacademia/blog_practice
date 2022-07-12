@@ -10,12 +10,14 @@
         {% if text_list %}
         <ul>
             {% for post in text_list %}
-            <li>{{ post.title }}</li>
+            <li><a href="{% url 'page_detail' post.id %}">{{ post.title }}</a></li>
             {% endfor %}
         </ul>
         {% else %}
         <p>There are no posts yet in the blog.</p>
         {% endif %}
     </p>
+    <hr>
+    <p><a href="{% url 'home' %}">Go back to the Home Page</a></p>
 </body>
 </html>
