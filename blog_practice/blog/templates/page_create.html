@@ -5,10 +5,10 @@
 </head>
 <body>
     <h1>This is the Post create page</h1>
-    <form action="{% url 'pages' %}" method="post">
+    <form method="POST" action=""> <!-- tyr to not put something in action until is finished -->
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" /> <!-- never forget to close the tag with the "/" --> 
     </form>
 </body>
 </html>
