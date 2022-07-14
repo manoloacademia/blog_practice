@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <hr>
+    <h3>This is the Post update page</h3>
+    <form method="POST" action=""> <!-- tyr to not put something in action until is finished -->
+        {% csrf_token %}
+        {{ post|crispy }}
+        <input type="submit" value="Update" class="btn btn-outline-warning" /> <!-- never forget to close the tag with the "/" --> 
+    </form>
+{% endblock %}

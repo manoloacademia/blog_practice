@@ -7,5 +7,11 @@
         <p>The text is: {{ post.text }}</p>
     {% endif %}
     <hr>
+    <p>You can update this post by clicking here: </p>
+    <a href="{% url 'page_update' post.id %}"><button type="button" class="btn btn-outline-warning">Update</button></a>
+    <hr>
+    <p>You can delete this post by clicking here: </p>
+    <a href="{% url 'page_delete' post.id %}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+    <hr>
     <p><a href="{% url 'pages' %}">Go back to Pages</a></p>
 {% endblock %}

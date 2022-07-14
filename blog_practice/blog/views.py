@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse
+from matplotlib.style import context
 from .models import Post
 from .forms import PostForm
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -30,10 +31,25 @@ def page_create(request):
         form = PostForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('/')
     context = {'form': form}
     return render(request, 'page_create.html', context)
 
+def page_update(request, pk):
+    page = Post.objects.get(pk=pk)
+    form = PostForm(instance=page) # this allows to check for the pk object
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=page)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context = {'post': form}
+    return render(request, 'page_update.html', context)
+
 def page_delete(request, pk):
     page_delete = Post.objects.get(pk=pk)
+    if request.method == 'POST':
+        page_delete.delete()
+        return redirect('/')
     context = {'delete_post': page_delete}
     return render(request,'page_delete.html', context)

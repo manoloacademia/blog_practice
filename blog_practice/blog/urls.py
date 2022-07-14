@@ -9,5 +9,6 @@ urlpatterns = [
     path('pages/', views.pages, name='pages'),
     path('pages/<int:pk>', views.page_detail, name='page_detail'),
     path('pages/create', views.page_create, name='page_create'),
+    path('pages/<int:pk>/update', views.page_update, name='page_update'),
     path('pages/<int:pk>/delete', views.page_delete, name='page_delete'),
 ]
