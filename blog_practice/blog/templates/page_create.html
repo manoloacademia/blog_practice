@@ -6,6 +6,6 @@
     <form method="POST" action=""> <!-- tyr to not put something in action until is finished -->
         {% csrf_token %}
         {{ form|crispy }}
-        <input type="submit" value="Submit" /> <!-- never forget to close the tag with the "/" --> 
+        <input type="submit" value="Submit" class="btn btn-outline-success" /> <!-- never forget to close the tag with the "/" --> 
     </form>
 {% endblock %}
