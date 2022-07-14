@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Blog: practice</title>
-</head>
-<body>
-    <h1>This is the home page</h1>
+{% extends 'base.html' %}
+{% block content %}
+    <hr>    
+    <h3>This is the home page</h3>
     <hr>
     <h3>This is the list of pages you could find in the project</h3>
     <p>
@@ -12,5 +9,4 @@
         <li><a href="{% url 'pages' %}">Blog posts detailed</a></li>
         <li>Login</li>
     </p>
-</body>
-</html>
+{% endblock %}

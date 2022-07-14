@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Blog Post detail</title>
-</head>
-<body>
-    <h1>This is the detail from post {{ post.id }}</h1>
+{% extends 'base.html' %}
+{% block content %}
+    <hr>
+    <h3>This is the detail from post {{ post.id }}</h3>
     {% if post %}
-    <p>The title is: {{ post.title }}</p>
-    <p>The text is: {{ post.text }}</p>
+        <p>The title is: {{ post.title }}</p>
+        <p>The text is: {{ post.text }}</p>
     {% endif %}
     <hr>
     <p><a href="{% url 'pages' %}">Go back to Pages</a></p>
-</body>
-</html>
+{% endblock %}

@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Post: creation</title>
-</head>
-<body>
-    <h1>This is the Post create page</h1>
+{% extends 'base.html' %}
+{% block content %}
+    <hr>
+    <h3>This is the Post create page</h3>
     <form method="POST" action=""> <!-- tyr to not put something in action until is finished -->
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Submit" /> <!-- never forget to close the tag with the "/" --> 
     </form>
-</body>
-</html>
+{% endblock %}
