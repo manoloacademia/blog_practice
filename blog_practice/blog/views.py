@@ -9,7 +9,7 @@ def home(request):
     return render(request, 'home.html', {})
 
 def about(request):
-    return HttpResponse('This is the about page, from myself.')
+    return render(request, 'about.html', {})
 
 def pages(request):
     text_list = Post.objects.all()
