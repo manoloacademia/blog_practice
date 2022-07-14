@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
     <hr>
     <h3>This is the Post create page</h3>
     <form method="POST" action=""> <!-- tyr to not put something in action until is finished -->
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
         <input type="submit" value="Submit" /> <!-- never forget to close the tag with the "/" --> 
     </form>
 {% endblock %}
