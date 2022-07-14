@@ -1,8 +1,11 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.urls import reverse
 from .models import Post
 from .forms import PostForm
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.urls import reverse_lazy
 
 # Create your views here.
 def home(request):
@@ -29,3 +32,8 @@ def page_create(request):
             form.save()
     context = {'form': form}
     return render(request, 'page_create.html', context)
+
+def page_delete(request, pk):
+    page_delete = Post.objects.get(pk=pk)
+    context = {'delete_post': page_delete}
+    return render(request,'page_delete.html', context)
