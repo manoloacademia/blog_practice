@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     <hr>    
-    <h3>This is the home page</h3>
+    <h4>This is the home page</h4>
+    <p>Click in the buttons to navigate</p>
     <hr>
+    <div class="d-grid gap-2">
+        <a href="{% url 'pages' %}"><button class="btn btn-lg col-4 btn-primary" type="button">Blog</button></a>
+        <hr>
+        <a href="{% url 'about' %}"><button class="btn btn-lg col-4 btn-secondary" type="button">About</button></a>
+    </div>
 {% endblock %}
