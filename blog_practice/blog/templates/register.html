@@ -1,6 +1,10 @@
-<h1>Register page</h1>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h4>Register page</h4>
 
 <form method="POST" action="">
     {% csrf_token %}
-    {{ form }}
+    {{ form|crispy }}
 </form>
+{% endblock %}
