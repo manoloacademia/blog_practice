@@ -2,7 +2,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse
-from matplotlib.style import context
 from .models import Post
 from .forms import PostForm
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -53,3 +52,11 @@ def page_delete(request, pk):
         return redirect('/')
     context = {'delete_post': page_delete}
     return render(request,'page_delete.html', context)
+
+def register(request):
+    context = {}
+    return render(request, 'register.html', context)
+
+def login(request):
+    context = {}
+    return render(request, 'login.html', context)
