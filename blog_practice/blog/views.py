@@ -6,6 +6,7 @@ from .models import Post
 from .forms import PostForm
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def home(request):
@@ -54,7 +55,8 @@ def page_delete(request, pk):
     return render(request,'page_delete.html', context)
 
 def register(request):
-    context = {}
+    form = UserCreationForm()
+    context = {'form': form}
     return render(request, 'register.html', context)
 
 def login(request):
