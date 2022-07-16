@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, CreateUserForm
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
@@ -55,7 +55,12 @@ def page_delete(request, pk):
     return render(request,'page_delete.html', context)
 
 def register(request):
-    form = UserCreationForm()
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            redirect('/')
     context = {'form': form}
     return render(request, 'register.html', context)
 
